@@ -6,6 +6,8 @@ const routes = require('./controllers');
 const path = require('path');
 const helpers = require('./utils/helpers');
 
+if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
+
 const app = express();
 const PORT = process.env.PORT || 3001
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
