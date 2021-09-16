@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'body',
             'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            'created_at'
         ],
         include: [
             {
@@ -51,8 +50,7 @@ router.get('/:id', (req, res) => {
             'id',
             'body',
             'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            'created_at'
         ],
         include: [
             {
@@ -95,16 +93,6 @@ router.post('/', withAuth, (req, res) => {
         user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
-// UPVOTE a post
-router.put('/upvote', withAuth, (req, res) => {
-    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-    .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
