@@ -122,6 +122,11 @@ main {
   line-height: 150%;
 }
 
+span {
+  font-weight: lighter;
+  color: #9c9c9c;
+}
+
 .post .title span {
   font-style: italic;
   font-size: 90%;
