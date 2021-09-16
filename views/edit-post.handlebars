@@ -7,7 +7,6 @@
     <div>
       <label for="post-title">Title</label>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.body}})</span>
     </div>
     <div>
       <label for="post-body">Description</label>
@@ -20,19 +19,6 @@
     <button type="button" class="delete-post-btn">Delete post</button>
   </form>
 </article>
-
-<form class="comment-form">
-  <div>
-    <label for="comment-body">Comment</label>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-
-{{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
