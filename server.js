@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const controller = require('./controllers');
 const path = require('path');
 const helpers = require('./utils/helpers');
+const dotenv = require('dotenv');
 
 const app = express();
 const PORT = process.env.PORT || 3001
